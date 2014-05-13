@@ -1,0 +1,34 @@
+2005-02-05 Fred Gleason <fredg@blackhawke.net>
+	* Initial package creation.
+2005-02-12 Fred Gleason <fredg@blackhawke.net>
+	* Got basic tag parsing working.
+2005-02-13 Fred Gleason <fredg@blackhawke.net>
+	* Added an audiodir(5) file.
+	* Added macros for date, time and filesize.
+2005-02-14 Fred Gleason <fredg@blackhawke.net>
+	* Fixed a bug in 'audiodir.cpp' that was causing a segfault when
+	attempting to read a non-audio file.
+	* Incremented the package version to 0.1.0.
+2005-02-16 Fred Gleason <fredg@blackhawke.net>
+	* Recast the command format to use 'Key=', 'Filter=' and 'Format='
+	arguments.
+2005-03-02 Fred Gleason <fredg@blackhawke.net>
+	* Added a FileList class in 'filelist.cpp'.
+2005-03-04 Fred Gleason <fredg@blackhawke.net>
+	* Added a 'SortBy=' directive to the command line.
+	* Added a '@K' tag.
+2008-03-07 Fred Gleason <fredg@paravelsystems.com>
+	* Added 'get_target.sh', 'get_distro.sh' and 'acinclude.m4' files.
+	* Updated 'audiodir.spec'in' to use the 'License:' tag.
+2008-03-07 Fred Gleason <fredg@paravelsystems.com>
+	* Incremented the package version to 0.3.1.
+2008-03-07 Fred Gleason <fredg@paravelsystems.com>
+	* Fixed a bug in 'Makefile.am' that was causing a corrupt RPM to
+	be built for the x86_64 architecture.
+2008-03-07 Fred Gleason <fredg@paravelsystems.com>
+	* Incremented the package version to 0.3.2.
+2009-12-23 Fred Gleason <fredg@paravelsystems.com>
+	* Fixed bugs in 'filelist.cpp' and 'audiodir.cpp' that broke the
+	build under OpenSuSE 11.1.
+2009-12-23 Fred Gleason <fredg@paravelsystems.com>
+	* Incremented the package version to 0.3.3.

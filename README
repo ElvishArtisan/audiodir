@@ -1,0 +1,43 @@
+This is the README file for the AudioDir.  The package is 
+supplied under the GNU Public License, and as such comes with
+ABSOLUTELY NO WARRANTY.  See the file COPYING for details.
+
+Available macros:
+
+@t - Tag Title
+
+@a - Tag Artist
+
+@l - Tag Album Name
+
+@z - Tag Year
+
+@u - Tag Comment
+
+@g - Tag Genre
+
+@n - Tag Track Number
+
+@f - Filename Field
+
+@D - Download URL Field
+
+@s - Streaming URL Field
+
+@K - File Size with unit appended
+
+@L - File Size in MBytes
+
+@d - Last Modified Day
+
+@m - Last Modified Month
+
+@y - Last Modified Year (Two Digits)
+
+@Y - Last Modified Year (Four Digits)
+
+@H - Last Modified Hour
+
+@M - Last Modified Minute
+
+@S - Last Modified Second

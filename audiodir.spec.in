@@ -1,0 +1,63 @@
+## audiodir.spec.in
+##
+##    Copyright (C) 2008  Fred Gleason <fredg@paravelsystems.com>
+##
+##      $Id: audiodir.spec.in,v 1.3 2008/03/07 18:39:21 fredg Exp $
+##
+##    This program is free software; you can redistribute it and/or modify
+##    it under the terms of version 2 of the GNU General Public License as
+##    published by the Free Software Foundation;
+##
+##    This program is distributed in the hope that it will be useful,
+##    but WITHOUT ANY WARRANTY; without even the implied warranty of
+##    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+##    GNU General Public License for more details.
+##
+##    You should have received a copy of the GNU General Public License
+##    along with this program; if not, write to the Free Software
+##    Foundation, Inc., 59 Temple Place, Suite 330, 
+##    Boston, MA  02111-1307  USA
+##
+
+Summary: The AudioDir Multimedia CGI Script
+Name: audiodir
+Version: %PKG_VERSION%
+Release: %RPM_RELEASE%
+License: GPL
+Group: Productivity/Multimedia/Other
+Source: ftp://ftp.salemradiolabs.com/pub/srlabs/audiodir/audiodir-%PKG_VERSION%.tar.gz
+Requires: apache
+BuildRoot: /var/tmp/lab-%PKG_VERSION%
+
+%description
+AudioDir is a CGI script for displaying information from multimedia
+audio tags on web pages.  It is capable of displaying information from
+MP3 and OggVorbis files.
+
+%prep
+%setup
+./configure --prefix=$RPM_BUILD_ROOT/usr/local
+
+%build
+make
+
+%install
+mkdir -p $RPM_BUILD_ROOT/srv/www/cgi-bin
+cp audiodir.cgi $RPM_BUILD_ROOT/srv/www/cgi-bin
+mkdir -p $RPM_BUILD_ROOT/etc
+cp audiodir.conf $RPM_BUILD_ROOT/etc
+
+%clean
+rm -rf $RPM_BUILD_ROOT
+
+%files
+%defattr(-,root,root)
+%doc README INSTALL AUTHORS ChangeLog COPYING
+%config /etc/audiodir.conf
+/srv/www/cgi-bin/audiodir.cgi
+
+%changelog
+* Fri Mar 07 2005 Fred Gleason <fredg@paravelsystems.com>
+-- Updated the Copyright: tag to License:.
+* Sun Feb 13 2005 Fred Gleason <fredg@salemradiolabs.com>
+-- Initial RPM creation.
