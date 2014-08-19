@@ -2,7 +2,7 @@ This is the README file for the AudioDir.  The package is
 supplied under the GNU Public License, and as such comes with
 ABSOLUTELY NO WARRANTY.  See the file COPYING for details.
 
-AudioDir is a CGI script that can be used to dynamically insert information
+AudioDir is a CGI script that can be used to insert information dynamically
 from audio file metadata (such as that contained in MP3 files) into web
 pages by means of a server side include (SSI).
 
@@ -10,7 +10,7 @@ Invocation:
 <!--#include virtual="/cgi-bin/audiodir.cgi?Key=[name]&Filter=[filter-spec]&SortBy=[sort-spec]&Format=[fmt-string] -->
 
 where:
-[name] - The name of the location, as defined in the '/etc/audiodir.cgi' file.
+[name] - The name of the location, as defined in the '/etc/audiodir.conf' file.
 
 [file-spec] - The file spec of the files to be used to generate metadata,
               relative to the location of the SSI call --e.g. '*.mp3'.
