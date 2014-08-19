@@ -42,19 +42,33 @@ MP3 and OggVorbis files.
 make
 
 %install
-mkdir -p $RPM_BUILD_ROOT@libexecdir@
-cp audiodir.cgi $RPM_BUILD_ROOT@libexecdir@
-mkdir -p $RPM_BUILD_ROOT/etc
-cp audiodir.conf $RPM_BUILD_ROOT/etc
+make install DESTDIR=$RPM_BUILD_ROOT
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
+%post
+if test "@VENDOR@" = "suse" ; then
+  PACKAGE_DOC_DIR=%_docdir/%{name}
+fi
+if test "@VENDOR@" = "redhat" ; then
+  PACKAGE_DOC_DIR=%_docdir/%{name}-%{version}
+fi
+if test ! -f /etc/audioconf.conf ; then
+  cp $PACKAGE_DOC_DIR/audiodir.conf-sample /etc/audiodir.conf
+fi
+
+
 %files
 %defattr(-,root,root)
-%doc README INSTALL AUTHORS ChangeLog COPYING
-%config /etc/audiodir.conf
 @libexecdir@/audiodir.cgi
+%doc audiodir.conf-sample
+%doc AUTHORS
+%doc ChangeLog
+%doc COPYING
+%doc INSTALL
+%doc README
+
 
 %changelog
 * @RPM_DATESTAMP@ Fred Gleason <fredg@paravelsystems.com> - @VERSION@-@RPM_RELEASE@

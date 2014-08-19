@@ -1,0 +1,38 @@
+# audiodir.conf
+#
+# This is the sample configuration file for the AudioDir CGI web
+# script.
+#
+# (C) Copyright 2014 Fred Gleason <fredg@paravelsystems.com>
+#
+# This file defines the locations from which the audiodir.cgi script
+# will be allowed to serve information.  Each entry looks like this:
+
+# [<name>]
+#
+# The name of the location.  This is the value that is passed to the 'Key='
+# argument of the script.
+#
+[Test]
+
+# LocalPath=<directory>
+#
+# The directory on the local filesystem of the web server where the page
+# containing the 'audiodir.cgi' SSI call will be located.
+#
+LocalPath=/var/www/html
+
+# DownloadPath=<url-hostname>
+#
+# The URL type and hostname that will be used when constructing the download
+# URL with the @D wildcard.
+#
+DownloadPath=http://localhost
+
+# StreamPath=<url-hostname>
+#
+# The URL type and hostname that will be used when constructing the stream
+# URL with the @s wildcard.
+#
+StreamPath=rtsp://localhost
+

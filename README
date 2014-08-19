@@ -2,7 +2,27 @@ This is the README file for the AudioDir.  The package is
 supplied under the GNU Public License, and as such comes with
 ABSOLUTELY NO WARRANTY.  See the file COPYING for details.
 
-Available macros:
+AudioDir is a CGI script that can be used to dynamically insert information
+from audio file metadata (such as that contained in MP3 files) into web
+pages by means of a server side include (SSI).
+
+Invocation:
+<!--#include virtual="/cgi-bin/audiodir.cgi?Key=[name]&Filter=[filter-spec]&SortBy=[sort-spec]&Format=[fmt-string] -->
+
+where:
+[name] - The name of the location, as defined in the '/etc/audiodir.cgi' file.
+
+[file-spec] - The file spec of the files to be used to generate metadata,
+              relative to the location of the SSI call --e.g. '*.mp3'.
+
+[sort-spec] - A string to define how the metadata list should be sorted, using
+              the letter part of the metadata wildcards (see below).  For
+              example, a sort-spec of 'm/d/y' would cause the listing to
+              be sorted by the modification date of each respective file.
+ 
+[fmt-string] - A template defining how the metadata listing for each
+               file matching [file-spec] should be rendered.  The following
+               wildcards cards are available:
 
 @t - Tag Title
 
@@ -41,3 +61,4 @@ Available macros:
 @M - Last Modified Minute
 
 @S - Last Modified Second
+

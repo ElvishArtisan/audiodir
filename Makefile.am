@@ -29,7 +29,7 @@ audiodir_cgi_SOURCES = audiodir.cpp cgilib.cpp conflib.cpp filelist.cpp\
                        audiodir.h conflib.h cgilib.h filelist.h
 audiodir_cgi_LDADD = @TAGLIB_LIBS@
 
-EXTRA_DIST = autogen.sh audiodir.spec.in audiodir.conf get_target.sh\
+EXTRA_DIST = autogen.sh audiodir.spec.in audiodir.conf-sample get_target.sh\
              get_distro.sh
 
 rpm:	dist
