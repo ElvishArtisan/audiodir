@@ -44,7 +44,7 @@ int PathCat(char *dest,const char *src,int maxlen)
   if(dest[l-1]!='/') {
     offset=1;
   }
-  if((l+strlen(src)+offset)>=maxlen) {
+  if((l+(int)strlen(src)+offset)>=maxlen) {
     return -1;
   }
   if(offset==1) {
@@ -57,18 +57,12 @@ int PathCat(char *dest,const char *src,int maxlen)
 
 int main(int argc,char *argv[])
 {
-  int i,j;
-  struct stat stat;
-  struct dirent *dirent;
-  char filename[PATH_LEN];
   char local_path[PATH_LEN];
   char download_path[PATH_LEN];
   char stream_path[PATH_LEN];
   char pathname[PATH_LEN];
   int l;
   int year;
-  int tag_valid;
-  char temp[256];
   char key[256];
   char filter[256];
   char format[256];
@@ -115,7 +109,7 @@ int main(int argc,char *argv[])
   // Load the Filelist
   //
   FileList filelist(download_path,stream_path);
-  for(i=0;i<pglob.gl_pathc;i++) {
+  for(unsigned i=0;i<pglob.gl_pathc;i++) {
     filelist.addFile(pglob.gl_pathv[i]);
   }
 
@@ -179,8 +173,8 @@ int main(int argc,char *argv[])
    * Make Substitutions and Render Output
    */
   printf("Content-type: text/html\n\n");
-  for(i=0;i<filelist.size();i++) {
-    for(j=0;j<l;j++) {
+  for(int i=0;i<filelist.size();i++) {
+    for(int j=0;j<l;j++) {
       if(format[j]=='@') {
 	if(format[++j]!=0) {
 	  switch(format[j]) {

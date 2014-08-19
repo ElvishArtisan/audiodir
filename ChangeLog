@@ -46,3 +46,6 @@
 	* Modified 'Makefile.am' to use the location specified by the
 	'--libexecdir=' switch to 'configure' to specify installation
 	location of the script.
+2014-08-19 Fred Gleason <fredg@paravelsystems.com>
+	* Cleaned up warnings in 'cgilib.cpp', 'conflib.cpp' and
+	'filelist.cpp'.

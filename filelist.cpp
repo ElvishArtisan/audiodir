@@ -145,49 +145,52 @@ int FileList::modifiedSecond(int n) const
 void FileList::sortBy(Attribute attb)
 {
   switch(attb) {
-      case FileList::Title:
-	BubbleSort(&list_title);
-	break;
+  case FileList::Title:
+    BubbleSort(&list_title);
+    break;
 
-      case FileList::Artist:
-	BubbleSort(&list_artist);
-	break;
+  case FileList::Artist:
+    BubbleSort(&list_artist);
+    break;
 
-      case FileList::Album:
-	BubbleSort(&list_album);
-	break;
+  case FileList::Album:
+    BubbleSort(&list_album);
+    break;
 
-      case FileList::Comment:
-	BubbleSort(&list_comment);
-	break;
+  case FileList::Comment:
+    BubbleSort(&list_comment);
+    break;
 
-      case FileList::Genre:
-	BubbleSort(&list_genre);
-	break;
+  case FileList::Filename:
+    break;
 
-      case FileList::DownloadUrl:
-	BubbleSort(&list_download);
-	break;
+  case FileList::Genre:
+    BubbleSort(&list_genre);
+    break;
 
-      case FileList::StreamUrl:
-	BubbleSort(&list_stream);
-	break;
+  case FileList::DownloadUrl:
+    BubbleSort(&list_download);
+    break;
 
-      case FileList::Filesize:
-	BubbleSort(&list_filesize);
-	break;
+  case FileList::StreamUrl:
+    BubbleSort(&list_stream);
+    break;
 
-      case FileList::Year:
-	BubbleSort(&list_year);
-	break;
+  case FileList::Filesize:
+    BubbleSort(&list_filesize);
+    break;
 
-      case FileList::Track:
-	BubbleSort(&list_track);
-	break;
+  case FileList::Year:
+    BubbleSort(&list_year);
+    break;
 
-      case FileList::ModifiedTime:
-	BubbleSort(&list_time);
-	break;
+  case FileList::Track:
+    BubbleSort(&list_track);
+    break;
+
+  case FileList::ModifiedTime:
+    BubbleSort(&list_time);
+    break;
   }
 }
 
@@ -273,7 +276,7 @@ void FileList::BubbleSort(std::vector<unsigned> *v)
 
   while(changed) {
     changed=false;
-    for(int i=1;i<list_sort.size();i++) {
+    for(unsigned i=1;i<list_sort.size();i++) {
       if(v->at(list_sort[i])<v->at(list_sort[i-1])) {
 	n=list_sort[i];
 	list_sort[i]=list_sort[i-1];
@@ -292,7 +295,7 @@ void FileList::BubbleSort(std::vector<time_t> *v)
 
   while(changed) {
     changed=false;
-    for(int i=1;i<list_sort.size();i++) {
+    for(unsigned i=1;i<list_sort.size();i++) {
       if(v->at(list_sort[i])<v->at(list_sort[i-1])) {
 	n=list_sort[i];
 	list_sort[i]=list_sort[i-1];
@@ -311,7 +314,7 @@ void FileList::BubbleSort(std::vector<TagLib::String> *v)
 
   while(changed) {
     changed=false;
-    for(int i=1;i<list_sort.size();i++) {
+    for(unsigned i=1;i<list_sort.size();i++) {
       if(v->at(list_sort[i])<v->at(list_sort[i-1])) {
 	n=list_sort[i];
 	list_sort[i]=list_sort[i-1];

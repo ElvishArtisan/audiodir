@@ -171,7 +171,7 @@ int IncrementIndex(char *sPathname,int dMaxIndex)
   strcat(sLockname,".LCK");
   i=0;
   while(dLockname<0 && i<MAX_RETRIES) {
-    dLockname=open(sLockname,O_WRONLY|O_EXCL|O_CREAT|S_IRUSR|S_IWUSR);
+    dLockname=open(sLockname,O_WRONLY|O_EXCL|O_CREAT,S_IRUSR|S_IWUSR);
     i++;
   }
   if(dLockname<0) {
@@ -253,7 +253,7 @@ int GetLock(char *sLockname)
   char sAccum[256];
 
   while((dLockname<=0) && (i<MAX_RETRIES)) {
-    dLockname=open(sLockname,O_WRONLY|O_EXCL|O_CREAT|S_IRUSR|S_IWUSR);
+    dLockname=open(sLockname,O_WRONLY|O_EXCL|O_CREAT,S_IRUSR|S_IWUSR);
     if(dLockname<=0) {
       sleep(1);
     }

@@ -48,7 +48,9 @@ int ReadPost(char *cBuffer,int dSize)
     return -1;
   }
   dPostSize++;
-  fgets(cBuffer,dPostSize,stdin);
+  if(fgets(cBuffer,dPostSize,stdin)==NULL) {
+    return 0;
+  }
   return dPostSize;  
 }
 
@@ -82,7 +84,7 @@ int PutPostString(char *sPost,const char *sArg,const char *sValue,int dMaxSize)
      * Will it fit?
      */
     dOrigin=strlen(sPost);
-    if((dOrigin+strlen(sArg)+strlen(sValue)+2)>=dMaxSize) {
+    if((dOrigin+(int)strlen(sArg)+(int)strlen(sValue)+2)>=dMaxSize) {
       return -1;
     }
     /*

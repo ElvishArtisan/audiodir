@@ -43,6 +43,11 @@ AC_SUBST(ARCH,$ar_gcc_arch)
 # Determine Distro
 #
 AR_GET_DISTRO()
+if test $ar_distro_name = "RedHat" ; then
+  AC_SUBST(VENDOR,redhat)
+else
+  AC_SUBST(VENDOR,"suse")
+fi
 
 #
 # TagLib Library
@@ -65,20 +70,9 @@ if test -z $RPMBUILD_FOUND ; then
 else
   AC_SUBST(RPMBUILD,rpmbuild)
 fi
-sed -e s/%PKG_VERSION%/$VERSION/g -e s/%RPM_RELEASE%/$RPM_RELEASE/g audiodir.spec.in > audiodir.spec
-if test -d /usr/src/redhat ; then
-  AC_SUBST(RPM_ROOT,/usr/src/redhat)
-  AC_SUBST(VENDOR,redhat)
-else
-  AC_SUBST(RPM_ROOT,/usr/src/packages)
-  AC_SUBST(VENDOR,suse)
-fi 
-if test $ar_gcc_arch = x86_64 ; then
-  AC_SUBST(AD_LIB_PATH,lib64)
-else
-  AC_SUBST(AD_LIB_PATH,lib)
-fi
+AC_SUBST(RPM_DATESTAMP,`date +%a\ %b\ %d\ %Y`)
 
 
 AC_OUTPUT(Makefile \
+  audiodir.spec \
 )

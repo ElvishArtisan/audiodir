@@ -22,7 +22,7 @@
 ##
 
 
-AM_CFLAGS = -Wall @TAGLIB_INCLUDES@
+AM_CPPFLAGS = -Wall @TAGLIB_INCLUDES@
 
 libexec_PROGRAMS = audiodir.cgi
 audiodir_cgi_SOURCES = audiodir.cpp cgilib.cpp conflib.cpp filelist.cpp\
@@ -33,13 +33,14 @@ EXTRA_DIST = autogen.sh audiodir.spec.in audiodir.conf get_target.sh\
              get_distro.sh
 
 rpm:	dist
-	cp audiodir-$(VERSION).tar.gz $(RPM_ROOT)/SOURCES/
+	mkdir -p $(HOME)/rpmbuild/SOURCES
+	cp audiodir-$(VERSION).tar.gz $(HOME)/rpmbuild/SOURCES/
 	$(RPMBUILD) -ba --target $(ARCH)-$(VENDOR)-linux audiodir.spec
-	mv $(RPM_ROOT)/RPMS/$(ARCH)/audiodir-$(VERSION)-@RPM_RELEASE@.$(ARCH).rpm $(top_srcdir)/
-	mv $(RPM_ROOT)/SRPMS/audiodir-$(VERSION)-@RPM_RELEASE@.src.rpm $(top_srcdir)/
-	rm $(RPM_ROOT)/SOURCES/audiodir-$(VERSION).tar.gz
-	rm -rf $(RPM_ROOT)/BUILD/audiodir-$(VERSION)
+	mv $(HOME)/rpmbuild/RPMS/$(ARCH)/audiodir-$(VERSION)-@RPM_RELEASE@.$(ARCH).rpm $(top_srcdir)/
+	mv $(HOME)/rpmbuild/SRPMS/audiodir-$(VERSION)-@RPM_RELEASE@.src.rpm $(top_srcdir)/
+	rm $(HOME)/rpmbuild/SOURCES/audiodir-$(VERSION).tar.gz
+	rm -rf $(HOME)/rpmbuild/BUILD/audiodir-$(VERSION)
 
 CLEANFILES = *~
 DISTCLEANFILES = depcomp install-sh missing mkinstalldirs audiodir.spec
-MAINTAINERCLEANFILES = *~ Makefile.in configure aclocal.m4 *.tar.gz
+MAINTAINERCLEANFILES = *~ Makefile.in configure aclocal.m4 *.tar.gz *.rpm
