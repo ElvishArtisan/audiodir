@@ -22,16 +22,9 @@
 ##
 
 
-pkglibdir = /srv/www/cgi-bin
 AM_CFLAGS = -Wall @TAGLIB_INCLUDES@
 
-install-exec-local:	
-	cp audiodir.cgi $(pkglibdir)
-
-uninstall-local:
-	rm -f $(pkglibdir)/audiodir.cgi
-
-noinst_PROGRAMS = audiodir.cgi
+libexec_PROGRAMS = audiodir.cgi
 audiodir_cgi_SOURCES = audiodir.cpp cgilib.cpp conflib.cpp filelist.cpp\
                        audiodir.h conflib.h cgilib.h filelist.h
 audiodir_cgi_LDADD = @TAGLIB_LIBS@
