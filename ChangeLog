@@ -52,3 +52,5 @@
 2014-08-19 Fred Gleason <fredg@paravelsystems.com>
 	* Updated 'README'.
 	* Renamed 'audiodir.conf' to 'audiodir.conf-sample'.
+2014-08-19 Fred Gleason <fredg@paravelsystems.com>
+	* Incremented the package version to 0.4.0.
