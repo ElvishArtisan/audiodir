@@ -29,10 +29,10 @@
 #include <time.h>
 #include <glob.h>
 
-#include <conflib.h>
-#include <cgilib.h>
-#include <audiodir.h>
-#include <filelist.h>
+#include "conflib.h"
+#include "cgilib.h"
+#include "audiodir.h"
+#include "filelist.h"
 
 
 int PathCat(char *dest,const char *src,int maxlen)

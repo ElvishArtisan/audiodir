@@ -32,8 +32,9 @@
 
 #define BUFFER_SIZE 1024
 
-int GetPrivateProfileString(char *sFilename,char *cHeader,char *cLabel,
-			    char *cValue,char *cDefault,int dValueLength)
+int GetPrivateProfileString(const char *sFilename,const char *cHeader,
+			    char const *cLabel,
+			    char *cValue,const char *cDefault,int dValueLength)
 {
   int i;
   
@@ -48,8 +49,8 @@ int GetPrivateProfileString(char *sFilename,char *cHeader,char *cLabel,
 }
 
 
-int GetPrivateProfileInt(char *sFilename,char *cHeader,char *cLabel,
-			 int dDefault)
+int GetPrivateProfileInt(const char *sFilename,const char *cHeader,
+			 const char *cLabel,int dDefault)
 {
   int c;
   char sNum[12];
@@ -69,7 +70,8 @@ int GetPrivateProfileInt(char *sFilename,char *cHeader,char *cLabel,
 
 
 
-int GetIni(char *sFileName,char *cHeader,char *cLabel,char *cValue,int dValueLength)	/* get a value from the ini file */
+int GetIni(const char *sFileName,const char *cHeader,const char *cLabel,
+	   char *cValue,int dValueLength)	/* get a value from the ini file */
      
 {
   FILE *cIniName;

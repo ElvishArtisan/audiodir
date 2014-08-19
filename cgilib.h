@@ -27,17 +27,17 @@
 
 /* Function Prototypes */
 extern int ReadPost(char *,int);
-extern int PutPostString(char *,char *,char *,int);
-extern int FindPostString(char *,char *,char *,int);
-extern int GetPostString(char *,char *,char *,int);
-extern int GetPostInt(char *,char *,int *);
-extern int PurgePostString(char *,char *,int);
+extern int PutPostString(char *,const char *,const char *,int);
+extern int FindPostString(const char *,const char *,char *,int);
+extern int GetPostString(const char *,const char *,char *,int);
+extern int GetPostInt(const char *,const char *,int *);
+extern int PurgePostString(char *,const char *,int);
 extern int EncodeString(char *,int);
 extern int EncodeSQLString(char *,int);
 extern int DecodeString(char *);
 extern int PutPlaintext(char *,int);
 extern int PurgePlaintext(char *,int);
-extern void Error(char *);
+extern void Error(const char *);
 extern int BufferDiff(char *,int,int,int);
 extern void PruneAmp(char *);
 extern int EscapeQuotes(const char *src,char *dest,int maxlen);

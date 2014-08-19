@@ -25,10 +25,8 @@
 #include <time.h>
 
 #include <vector>
-#include <fileref.h>
-#include <tag.h>
-
-using namespace std;
+#include <taglib/fileref.h>
+#include <taglib/tag.h>
 
 class FileList
 {
@@ -59,22 +57,22 @@ class FileList
   void addFile(char *path);
 
  private:
-  void BubbleSort(vector<unsigned> *v);
-  void BubbleSort(vector<time_t> *v);
-  void BubbleSort(vector<TagLib::String> *v);
-  vector<TagLib::String> list_title;
-  vector<TagLib::String> list_artist;
-  vector<TagLib::String> list_album;
-  vector<TagLib::String> list_comment;
-  vector<TagLib::String> list_genre;
-  vector<TagLib::String> list_download;
-  vector<TagLib::String> list_stream;
-  vector<TagLib::String> list_filename;
-  vector<unsigned> list_year;
-  vector<unsigned> list_track;
-  vector<unsigned> list_filesize;
-  vector<time_t> list_time;
-  vector<unsigned> list_sort;
+  void BubbleSort(std::vector<unsigned> *v);
+  void BubbleSort(std::vector<time_t> *v);
+  void BubbleSort(std::vector<TagLib::String> *v);
+  std::vector<TagLib::String> list_title;
+  std::vector<TagLib::String> list_artist;
+  std::vector<TagLib::String> list_album;
+  std::vector<TagLib::String> list_comment;
+  std::vector<TagLib::String> list_genre;
+  std::vector<TagLib::String> list_download;
+  std::vector<TagLib::String> list_stream;
+  std::vector<TagLib::String> list_filename;
+  std::vector<unsigned> list_year;
+  std::vector<unsigned> list_track;
+  std::vector<unsigned> list_filesize;
+  std::vector<time_t> list_time;
+  std::vector<unsigned> list_sort;
   char *list_download_url;
   char *list_stream_url;
 };

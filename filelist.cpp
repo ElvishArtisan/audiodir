@@ -24,11 +24,8 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 
-#include <conflib.h>
-
-
-#include <filelist.h>
-
+#include "conflib.h"
+#include "filelist.h"
 
 FileList::FileList(char *download_url,char *stream_url)
 {
@@ -269,7 +266,7 @@ void FileList::addFile(char *path)
 }
 
 
-void FileList::BubbleSort(vector<unsigned> *v)
+void FileList::BubbleSort(std::vector<unsigned> *v)
 {
   bool changed=true;
   unsigned n;
@@ -288,7 +285,7 @@ void FileList::BubbleSort(vector<unsigned> *v)
 }
 
 
-void FileList::BubbleSort(vector<time_t> *v)
+void FileList::BubbleSort(std::vector<time_t> *v)
 {
   bool changed=true;
   unsigned n;
@@ -307,7 +304,7 @@ void FileList::BubbleSort(vector<time_t> *v)
 }
 
 
-void FileList::BubbleSort(vector<TagLib::String> *v)
+void FileList::BubbleSort(std::vector<TagLib::String> *v)
 {
   bool changed=true;
   unsigned n;

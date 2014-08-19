@@ -55,7 +55,7 @@ int ReadPost(char *cBuffer,int dSize)
 
 
 /*
- * int PutPostString(char *sPost,char *sArg,char *sValue,int dMaxSize)
+ * int PutPostString(char *sPost,const char *sArg,const char *sValue,int dMaxSize)
  *
  * This function changes the contents of the POST buffer pointed to by
  * 'sPost'.  If the entry pointed to by 'sArg' exists, it's value is
@@ -65,7 +65,7 @@ int ReadPost(char *cBuffer,int dSize)
  * RETURNS:  If successful, a pointer to the start of the updated value
  *           If unsuccessful, -1
  */
-int PutPostString(char *sPost,char *sArg,char *sValue,int dMaxSize)
+int PutPostString(char *sPost,const char *sArg,const char *sValue,int dMaxSize)
 {
   int dOrigin;         /* Start of insert point */
   int dValue;          /* Length of sValue */
@@ -112,7 +112,7 @@ int PutPostString(char *sPost,char *sArg,char *sValue,int dMaxSize)
 
 
 /*
- * int FindPostString(char *cBuffer,char *sSearch,char *sReturn,
+ * int FindPostString(const char *cBuffer,const char *sSearch,char *sReturn,
  * int dReturnSize)
  *
  * This function returns the argument value associated with field name 
@@ -124,7 +124,7 @@ int PutPostString(char *sPost,char *sArg,char *sValue,int dMaxSize)
  *          -1 if the search is unsuccessful
  */
 
-int FindPostString(char *cBuffer,char *sSearch,char *sReturn,int dReturnSize)
+int FindPostString(const char *cBuffer,const char *sSearch,char *sReturn,int dReturnSize)
 
 {
   int i=0,j=0;
@@ -165,7 +165,7 @@ int FindPostString(char *cBuffer,char *sSearch,char *sReturn,int dReturnSize)
 
 
 /*
- * int GetPostString(char *cBuffer,char *sSearch,char *sReturn,
+ * int GetPostString(const char *cBuffer,const char *sSearch,char *sReturn,
  * int dReturnSize)
  *
  * This function returns the argument value associated with field name 
@@ -178,7 +178,7 @@ int FindPostString(char *cBuffer,char *sSearch,char *sReturn,int dReturnSize)
  *          -1 if the search is unsuccessful
  */
 
-int GetPostString(char *cBuffer,char *sSearch,char *sReturn,int dReturnSize)
+int GetPostString(const char *cBuffer,const char *sSearch,char *sReturn,int dReturnSize)
 {
   if(FindPostString(cBuffer,sSearch,sReturn,dReturnSize)<0) {
     return -1;
@@ -190,7 +190,7 @@ int GetPostString(char *cBuffer,char *sSearch,char *sReturn,int dReturnSize)
 
 
 /*
- * int GetPostInt(char *cBuffer,char *sSearch,int *dReturn)
+ * int GetPostInt(const char *cBuffer,const char *sSearch,int *dReturn)
  *
  * This function returns the integer argument value associated with field name 
  * pointed to by sSearch in the POST buffer cBuffer.  The argument value 
@@ -200,7 +200,7 @@ int GetPostString(char *cBuffer,char *sSearch,char *sReturn,int dReturnSize)
  *          -1 if the search is unsuccessful
  */
 
-int GetPostInt(char *cBuffer,char *sSearch,int *dReturn)
+int GetPostInt(const char *cBuffer,const char *sSearch,int *dReturn)
 {
   char sAccum[256];
 
@@ -224,7 +224,7 @@ int GetPostInt(char *cBuffer,char *sSearch,int *dReturn)
  * RETURNS:  If successful, the new size of 'sPost'
  *           If unsuccessful, -1
  */ 
-int PurgePostString(char *sPost,char *sArg,int dMaxSize)
+int PurgePostString(char *sPost,const char *sArg,int dMaxSize)
 {
   char sAccum[CGI_ACCUM_SIZE];
   int dPointer;
@@ -498,7 +498,7 @@ int PurgePlaintext(char *sPost,int dMaxSize)
 
 
 
-void Error(char *sError)
+void Error(const char *sError)
 {
   /* The cgi header */
   printf("Content-type: text/html\n");

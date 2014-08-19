@@ -1,10 +1,7 @@
 dnl configure.in
 dnl 
 dnl Use autoconf to process this into a configure script
-dnl   (C) Copyright 2002-2007 Fred Gleason <fredg@paravelsystems.com>
-dnl
-dnl      $Id: configure.in,v 1.8 2009/12/23 18:14:11 cvs Exp $
-dnl      $Date: 2009/12/23 18:14:11 $
+dnl   (C) Copyright 2002-2007,2014 Fred Gleason <fredg@paravelsystems.com>
 dnl
 dnl   This program is free software; you can redistribute it and/or modify
 dnl   it under the terms of the GNU General Public License version 2 as
@@ -20,8 +17,8 @@ dnl   License along with this program; if not, write to the Free Software
 dnl   Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 dnl
 
-AC_INIT(audiodir,0.3.3,fredg@paravelsystems.com)
-AM_INIT_AUTOMAKE(audiodir,0.3.3)
+AC_INIT(audiodir,0.3.3)
+AM_INIT_AUTOMAKE
 AC_SUBST(RPM_RELEASE,1)
 
 AC_PROG_CXX
@@ -82,5 +79,5 @@ else
 fi
 
 
-AC_OUTPUT(./Makefile \
+AC_OUTPUT(Makefile \
 )

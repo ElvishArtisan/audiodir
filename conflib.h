@@ -24,9 +24,10 @@
 #define PATH_LEN 256
 
 /* Function Prototypes */
-int GetPrivateProfileString(char *,char *,char *,char *,char *,int);
-int GetPrivateProfileInt(char *,char *,char *,int);
-int GetIni(char *,char *,char *,char *,int);
+int GetPrivateProfileString(const char *,const char *,const char *,char *,
+			    const char *,int);
+int GetPrivateProfileInt(const char *,const char *,const char *,int);
+int GetIni(const char *,const char *,const char *,char *,int);
 int GetIniLine(FILE *,char *);
 void Prepend(char *,char *);
 int IncrementIndex(char *,int);

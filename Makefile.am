@@ -23,8 +23,7 @@
 
 
 pkglibdir = /srv/www/cgi-bin
-AM_CFLAGS = -Wall
-INCLUDES = @TAGLIB_INCLUDES@
+AM_CFLAGS = -Wall @TAGLIB_INCLUDES@
 
 install-exec-local:	
 	cp audiodir.cgi $(pkglibdir)
