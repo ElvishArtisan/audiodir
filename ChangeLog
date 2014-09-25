@@ -61,3 +61,5 @@
 	* Implemented autodetection of LocalPath, DownloadPath and
 	StreamPath in 'audiodir.cpp'.
 	* Added 'audiotest.shtml'.
+2014-09-25 Fred Gleason <fredg@paravelsystems.com>
+	* Incremented the package version to 0.9.0.
