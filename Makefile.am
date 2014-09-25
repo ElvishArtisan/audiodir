@@ -31,7 +31,7 @@ audiodir_cgi_LDADD = @TAGLIB_LIBS@ -lz
 audiodir_cgi_LDFLAGS = @STATIC_LDFLAG@
 
 EXTRA_DIST = autogen.sh audiodir.spec.in audiodir.conf-sample get_target.sh\
-             get_distro.sh
+             get_distro.sh audiotest.shtml
 
 rpm:	dist
 	mkdir -p $(HOME)/rpmbuild/SOURCES

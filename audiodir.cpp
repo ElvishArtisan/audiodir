@@ -69,6 +69,9 @@ int main(int argc,char *argv[])
   char sortby[3];
   glob_t pglob;
 
+  if(getenv("DOCUMENT_ROOT")==NULL) {
+    Error("Missing DOCUMENT_ROOT value");
+  }
   if(getenv("QUERY_STRING")==NULL) {
     Error("Missing CGI argument");
   }
@@ -89,14 +92,27 @@ int main(int argc,char *argv[])
   /*
    * Get Paths
    */
-  if(GetPrivateProfileString(AUDIODIR_CONF_FILE,key,"LocalPath",local_path,"",
-			     PATH_LEN)<0) {
-    Error("Invalid key value!");
+  if(format[0]=='/') {
+    strcpy(local_path,getenv("DOCUMENT_ROOT"));
+
+    strcpy(download_path,"http://");
+    strcat(download_path,getenv("HTTP_HOST"));
+    strcat(download_path,"/");
+
+    strcpy(stream_path,"rtsp://");
+    strcat(stream_path,getenv("HTTP_HOST"));
+    strcat(stream_path,"/");
   }
-  GetPrivateProfileString(AUDIODIR_CONF_FILE,key,"DownloadPath",
-			  download_path,"",PATH_LEN);
-  GetPrivateProfileString(AUDIODIR_CONF_FILE,key,"StreamPath",
-			  stream_path,"",PATH_LEN);
+  else {
+    if(GetPrivateProfileString(AUDIODIR_CONF_FILE,key,"LocalPath",local_path,"",
+			       PATH_LEN)<0) {
+      Error("Invalid key value!");
+    }
+    GetPrivateProfileString(AUDIODIR_CONF_FILE,key,"DownloadPath",
+			    download_path,"",PATH_LEN);
+    GetPrivateProfileString(AUDIODIR_CONF_FILE,key,"StreamPath",
+			    stream_path,"",PATH_LEN);
+  }
 
   /*
    * Find Matching Files

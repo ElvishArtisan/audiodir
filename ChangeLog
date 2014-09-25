@@ -58,3 +58,6 @@
 	* Updated 'README'.
 2014-09-25 Fred Gleason <fredg@paravelsystems.com>
 	* Implemented an '--enable-static' switch for './configure'.
+	* Implemented autodetection of LocalPath, DownloadPath and
+	StreamPath in 'audiodir.cpp'.
+	* Added 'audiotest.shtml'.

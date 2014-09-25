@@ -1,0 +1,27 @@
+<html>
+<head>
+<title>Audiodir Script Test</title>
+</head>
+<body>
+<table cellspacing="0" cellpadding="0" border="1">
+<tr>
+<td colspan="12" align="center"><big><big><big>Audiodir Field Test</big></big></big></td>
+</tr>
+<tr>
+  <th>TRACK</th>
+  <th>FILENAME</th>
+  <th>SIZE</th>
+  <th>TIMESTAMP</th>
+  <th>TITLE</th>
+  <th>ARTIST</th>
+  <th>ALBUM</th>
+  <th>GENRE</th>
+  <th>YEAR</th>
+  <th>COMMENT</th>
+  <th>DOWNLOAD</th>
+  <th>STREAM</th>
+</tr>
+  <!--#include virtual="/cgi-bin/audiodir.cgi?Key=Test&Filter=/mp3s/*.mp3&SortBy=m/d/y&Format=<tr><td>@n</td><td>@f</td><td>@L</td><td>@m/@d/@y @H:@M:@S</td><td>@t</td><td>@a</td><td>@l</td><td>@g</td><td>@z</td><td>@u</td><td>@D</td><td>@s</td></tr>" -->
+</table>
+</body>
+</html>
