@@ -27,7 +27,8 @@ AM_CPPFLAGS = -Wall @TAGLIB_INCLUDES@
 libexec_PROGRAMS = audiodir.cgi
 audiodir_cgi_SOURCES = audiodir.cpp cgilib.cpp conflib.cpp filelist.cpp\
                        audiodir.h conflib.h cgilib.h filelist.h
-audiodir_cgi_LDADD = @TAGLIB_LIBS@
+audiodir_cgi_LDADD = @TAGLIB_LIBS@ -lz
+audiodir_cgi_LDFLAGS = @STATIC_LDFLAG@
 
 EXTRA_DIST = autogen.sh audiodir.spec.in audiodir.conf-sample get_target.sh\
              get_distro.sh
